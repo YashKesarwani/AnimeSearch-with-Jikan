@@ -1,0 +1,182 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: 0;
+          box-sizing: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #1e90ff;
+}
+
+header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-bottom: 50px;
+}
+
+header h1 {
+  color: #1e90ff;
+  background-color: #fff;
+  font-size: 36px;
+  font-weight: 400;
+  text-align: center;
+}
+
+.content-wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  color: white;
+}
+
+.content-wrap main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+  padding: 0px 16px;
+}
+
+.content-wrap main .main-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.content-wrap main .main-head .search-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 0%;
+          flex: 1 1 0%;
+}
+
+.content-wrap main .main-head .search-box button {
+  color: white;
+  background-color: blue;
+  border: 1px solid blue;
+  width: 35px;
+  font-weight: bold;
+}
+
+.content-wrap main .main-head .search-box input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background: none;
+  outline: none;
+  border: none;
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  padding: 16px;
+  background-color: #faefef;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.content-wrap main .main-head .search-box input ::-webkit-input-placeholder {
+  color: #888;
+}
+
+.content-wrap main .main-head .search-box input :-ms-input-placeholder {
+  color: #888;
+}
+
+.content-wrap main .main-head .search-box input ::-ms-input-placeholder {
+  color: #888;
+}
+
+.content-wrap main .main-head .search-box input ::placeholder {
+  color: #888;
+}
+
+.content-wrap main .main-head .search-box input:focus, .content-wrap main .main-head .search-box input:valid {
+  background-color: #313131;
+  color: #FFF;
+}
+
+.content-wrap main .anime-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 32px;
+  margin: 32px -8px 0px;
+}
+
+.content-wrap main .anime-list .anime-card {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20%;
+          flex: 1 1 20%;
+  max-width: 20%;
+  padding: 32px 30px;
+}
+
+.content-wrap main .anime-list .anime-card a {
+  text-decoration: none;
+}
+
+.content-wrap main .anime-list .anime-card figure {
+  display: block;
+}
+
+.content-wrap main .anime-list .anime-card figure img {
+  display: block;
+  width: 100%;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+          box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.15);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.content-wrap main .anime-list .anime-card h3 {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  background-color: #fff;
+  color: #313131;
+  text-align: center;
+  font-size: medium;
+  height: 60px;
+}
+
+.content-wrap main .anime-list .anime-card:hover figure img {
+  -webkit-box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.25);
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+}
+
+.content-wrap main .load-more {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 50px;
+}
+
+.content-wrap main .load-more button {
+  border: 0;
+  background-color: #fff;
+  color: #1e90ff;
+  width: 40%;
+  height: 30px;
+}
+/*# sourceMappingURL=main.css.map */
