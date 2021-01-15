@@ -6,28 +6,31 @@ import Loader from 'react-loader-spinner';
 function App() {
   const [animeList,SetAnimeList]=useState([]);
   const [search,SetSearch]=useState("");
-  const [visible,SetVisible]=useState(8);
+  const [lastPage,SetLastPage]=useState(1);
   const [isLoading,SetLoading]=useState(false);
   const [noData,SetNoData]=useState(false);
+  const [currPage,SetCurrPage]=useState(1);
 
   const HandleSearch=e=>{
     e.preventDefault();
-    SetLoading(true);
-    FetchAnime(search);
+    FetchAnime(search,currPage);
   }
 
   const ShowMore=()=>{
-    SetLoading(true);
-    SetVisible((prevValue)=>prevValue+4);
-    SetLoading(false);
+    // SetLoading(true);
+    SetCurrPage((prevValue)=>prevValue+1);
+    FetchAnime(search,currPage);
+    // SetLoading(false);
   }
 
-  const FetchAnime=async (query)=>{
-    const temp=await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc`)
+  const FetchAnime=async (query,currPage)=>{
+    SetLoading(true);
+    const temp=await fetch(`https://api.jikan.moe/v3/search/anime?q=${query}&order_by=title&sort=asc&page=${currPage}`)
     .then(res=>res.json());
     temp.results.length===0?SetNoData(true):SetNoData(false);
-    SetAnimeList(temp.results);
-    setTimeout(()=>{SetLoading(false);},300)
+    SetAnimeList((prevValue)=>prevValue.concat(temp.results));
+    SetLastPage(temp.results.nbPages);
+    SetLoading(false);
   }
 
   return (
@@ -37,8 +40,8 @@ function App() {
       <div className="content-wrap">
         {isLoading ? (<center><Loader type="TailSpin" color="#00BFFF" height={80} width={80}/></center>):
           (<div ><center><h2>Search for an anime</h2></center>
-          <MainContent HandleSearch={HandleSearch} search={search} noData={noData}
-            SetSearch={SetSearch} animeList={animeList} visible={visible} ShowMore={ShowMore} limitTo={animeList.length}/></div>)}
+          <MainContent HandleSearch={HandleSearch} search={search} noData={noData} SetSearch={SetSearch} animeList={animeList}
+            ShowMore={ShowMore} currPage={currPage} lastPage={lastPage} /></div>)}
       </div>
 
     </div>

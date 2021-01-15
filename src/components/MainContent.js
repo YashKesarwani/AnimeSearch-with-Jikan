@@ -14,15 +14,15 @@ function MainContent(props) {
             </div>
             <div className="anime-list">
                 {props.noData?(<div><h2 style={{position:"absolute", left:"45%"}}>No Anime Found</h2></div>):
-                    props.animeList.slice(0,props.visible).map(anime=>(
+                    // props.animeList.slice(0,props.visible).map(anime=>(
+                    props.animeList.map(anime=>(
                     <AnimeCard
                         anime={anime}
                         key={anime.mal_id} />
                 ))}
             </div>
             <div className="load-more">
-                {console.log(props.limitTo)}
-                <button style={{ display: props.limitTo===0 || props.limitTo<=props.visible  ? 'none' : 'block' }} onClick={props.ShowMore}>Load More</button>
+                <button style={{ display: props.noData || props.currPage===props.lastPage  ? 'none' : 'block' }} onClick={props.ShowMore}>Load More</button>
             </div>
         </main>
     )
